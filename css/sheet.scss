@@ -58,29 +58,40 @@ section {
     background-color: var(--color-primary);
 }
 
+
+
 .sec1 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(212, 152, 39);
 }
 
 .sec2 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: slateblue;
 }
 
 .sec3 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: green;
 }
 
 .sec4 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(205, 90, 153);
 }
 
 .sec5 {
     display: none;
     transform: translateY(0) scale(1);
+    background-color: rgb(90, 182, 205);
+}
+
+.active {
+    display: block;
 }
 
 //Controls (button icons)

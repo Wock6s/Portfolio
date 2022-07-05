@@ -1,17 +1,48 @@
 const sections = document.querySelectorAll('.section'); // Get all sections
 const sectBtns = document.querySelectorAll('.controls'); // Get all section buttons
 const sectBtn = document.querySelectorAll('.control');
-const allSections = document.querySelector('.main-content');
+const allSections = document.querySelectorAll('.main-content')[0]; 
 
-function PageTransitions() {
-    // button click active class shiit
+function sectionTransition() {
+
     for (let i = 0; i < sectBtn.length; i++) {
-        sectBtn[i].addEventListener('click', function() {
-            let currentBtn = document.querySelectorAll('.active-btn');
-            currentBtn[0].className = currentBtn[0].className.replace('active-btn', '');
-            this.className += 'active-btn';
-        })
+  
+      sectBtn[i].addEventListener("click", function () {
+  
+        let activeBtn = document.querySelector(".active-btn");
+  
+        if (activeBtn !== null) {
+  
+          activeBtn.classList.remove("active-btn");
+  
+        }
+  
+        this.classList += " active-btn";
+  
+      });
+  
     }
-}
 
-PageTransitions();
+    // sections active class
+    allSections.addEventListener('click', (e) => {
+        const id = e.target.dataset.id;
+        if (id) {
+            // remove selected fromt he othe rbuttons
+            sectBtns.forEach((btn) => {
+                btn.classList.remove('active');
+            })
+            e.target.classList.add('active')
+
+            // hide other sects
+            sections.forEach((section) => {
+                section.classList.remove('active')
+            })
+
+            const element = document.getElementById(id);
+            element.classList.add('active');
+        }
+    })
+  
+  }
+
+sectionTransition();
